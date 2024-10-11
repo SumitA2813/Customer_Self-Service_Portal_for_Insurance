@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Customer Self-Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Insurance Customer Self-Service Portal</h1>
+        <nav>
+            <button id="fileClaimBtn">File a Claim</button>
+            <button id="trackClaimBtn">Track Claims</button>
+            <button id="chatbotBtn">Chatbot</button>
+            <button id="knowledgeBaseBtn">Search Knowledge Base</button>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="recentClaims">
+            <h2>Recent Claims:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Claim Number</th>
+                        <th>Status</th>
+                        <th>Date Submitted</th>
+                    </tr>
+                </thead>
+                <tbody id="claimsTableBody">
+                   
+                </tbody>
+            </table>
+        </section>
+
+        
+        <section id="claimSubmission" class="hidden">
+            <h2>Submit a New Insurance Claim</h2>
+            <form id="claimForm">
+                <label for="policyNumber">Policy Number:</label>
+                <input type="text" id="policyNumber" name="policyNumber" required>
+
+                <label for="incidentDate">Incident Date:</label>
+                <input type="date" id="incidentDate" name="incidentDate" required>
+
+                <label for="incidentDescription">Incident Description:</label>
+                <textarea id="incidentDescription" name="incidentDescription" required></textarea>
+
+                <label for="supportingDocuments">Attach Files:</label>
+                <input type="file" id="supportingDocuments" name="supportingDocuments" multiple>
+
+                <button type="submit">Submit Claim</button>
+            </form>
+            <div id="formMessage"></div>
+        </section>
+
+        
+        <section id="chatbotSection" class="hidden">
+            <h2>Chat with Us (AI-Powered Chatbot)</h2>
+            <df-messenger
+                intent="WELCOME"
+                chat-title="InsuranceBot"
+                agent-id="YOUR_DIALOGFLOW_AGENT_ID"
+                language-code="en"
+            ></df-messenger>
+        </section>
+
+        
+        <section id="knowledgeBase" class="hidden">
+            <h2>Knowledge Base</h2>
+            <input type="text" id="searchBar" placeholder="Search articles...">
+            <div id="searchResults"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Insurance Company. All rights reserved.</p>
+    </footer>
+
+    
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
